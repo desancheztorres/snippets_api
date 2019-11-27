@@ -9,6 +9,11 @@ class Snippet extends Model
 {
     protected $fillable = ['uuid', 'title'];
 
+    public function getRouteKeyName()
+    {
+        return 'uuid';
+    }
+
     public static function boot() {
         parent::boot();
 
@@ -26,5 +31,9 @@ class Snippet extends Model
     public function steps() {
         return $this->hasMany(Step::class)
             ->orderBy('order', 'asc');
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 }
