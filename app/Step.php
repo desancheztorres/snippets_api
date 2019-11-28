@@ -9,6 +9,11 @@ class Step extends Model
 {
     protected $fillable = ['order', 'title', 'body', 'uuid'];
 
+    public function getRouteKeyName()
+    {
+        return 'uuid';
+    }
+
     public static function boot() {
         parent::boot();
 
